@@ -8,7 +8,7 @@ app.use(express.json());
 
 // Enable CORS for all routes
 app.use(cors());
-
+app.get("/",(req,res)=>res.send("HEllo"))
 // POST endpoint to send email
 app.post('/send-email',  async (req, res) => {
     console.log("ello")
