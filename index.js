@@ -1,15 +1,12 @@
 const express = require('express');
 const nodemailer = require("nodemailer");
- // Import your sendMail function
-const cors = require('cors'); // Import the cors package
+const cors = require('cors'); 
 
 const app = express();
 app.use(express.json());
 
-// Enable CORS for all routes
 app.use(cors());
 app.get("/",(req,res)=>res.send("HEllo"))
-// POST endpoint to send email
 app.post('/send-email',  async (req, res) => {
     console.log("ello")
     const {ma,fe,na}=req.body
@@ -64,7 +61,7 @@ app.post('/send-email',  async (req, res) => {
 );
 
 // Start the server
-const PORT =  3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
